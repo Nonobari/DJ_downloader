@@ -3,7 +3,6 @@ from pytube import YouTube, Playlist
 from pytube.cli import on_progress
 from pytube.helpers import safe_filename
 from tqdm import tqdm
-from moviepy.editor import *
 
 def get_highest_audio(url, path = "music"):
     video = YouTube(url, on_progress_callback=on_progress)
