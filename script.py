@@ -22,6 +22,7 @@ def download_playlist(url, path = "music"):
             # remove impossible characters from the title
             file_name = f"{safe_filename(f'{video.title} - {video.author}')}.wav"
             video.streams.filter(only_audio = True).order_by('abr').desc().first().download(output_path= path, filename=file_name)
+            
         except KeyboardInterrupt:
             print("KeyboardInterrupt")
             sys.exit(1)
@@ -39,9 +40,9 @@ def main():
             get_highest_audio(sys.argv[1])
     elif len(sys.argv) == 3:
         if "playlist" in sys.argv[1]:
-            download_playlist(sys.argv[1], sys.argv[2])
+            download_playlist(sys.argv[1], f"music/{sys.argv[2]}")
         elif "watch" in sys.argv[1]:
-            get_highest_audio(sys.argv[1], sys.argv[2])
+            get_highest_audio(sys.argv[1], f"music/{sys.argv[2]}")
 
 
 if __name__ == "__main__":
