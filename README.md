@@ -13,3 +13,11 @@ DJ Downloader est un script basique basé sur pytube afin de télécharger des a
         python script.py [url] (destination)
 
     si aucune destination n'est spécifiée, le script crée automatiquement un dossier "music" où le(s) fichier(s) sera(ont) téléchargé(s)
+
+## Précautions
+
+Attention, la playlist youtube doit être publique pour pouvoir être téléchargée !
+
+## Auteur
+
+Noé Backert - [noe.backert@gmail.com](mailto:noe.backert@gmail.com)
