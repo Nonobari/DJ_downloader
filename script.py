@@ -8,7 +8,7 @@ def get_highest_audio(url, path = "music"):
     video = YouTube(url, on_progress_callback=on_progress)
     # Download the highest audio resolution save it in mp3 format and make a progress bar
     print("downloading....")
-    file_name = f"{safe_filename(f'{video.title} - {video.author}')}.wav"
+    file_name = f"{safe_filename(f'{video.title} - {video.author}')}.mp3"
     video.streams.filter(only_audio = True).order_by('abr').desc().first().download(output_path= path, filename=file_name)
     print("Downloaded! :)")
 
@@ -19,9 +19,9 @@ def download_playlist(url, path = "music"):
     for video in tqdm(playlist.videos):
         try :
             # remove impossible characters from the title
-            file_name = f"{safe_filename(f'{video.title} - {video.author}')}.wav"
+            file_name = f"{safe_filename(f'{video.title} - {video.author}')}.mp3"
             video.streams.filter(only_audio = True).order_by('abr').desc().first().download(output_path= path, filename=file_name)
-            
+
         except KeyboardInterrupt:
             print("KeyboardInterrupt")
             sys.exit(1)
